@@ -61,9 +61,6 @@ CostFunction = function(XTheta,Y,R,lambda,numbercol,numberrow){
 # Run the functions
 Cost = CostFunction(c(X,Theta),Y,R,.05,numbercol,numberrow)
 GradList = TotalGrad(c(X,Theta),Y,R,.05,numbercol,numberrow)
-options(error=recover)
-answer = optimx(c(X,Theta),Y=Y,R=R,lambda=.1,numbercol = numbercol,
-                numberrow = numberrow,fn = CostFunction, gr = TotalGrad)
 
 # Hacky stepwise gradient descent
 XTheta = c(X,Theta)
