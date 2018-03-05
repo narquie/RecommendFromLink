@@ -18,15 +18,12 @@ def scrape_website(overall_dict,stack):
         stack.pop()
         return(overall_dict,stack,None,None)
     name = name_box.text
-    print(name)
     p = re.compile('"name":"(.*?)"')
     game_list = p.findall(name)
-    print(game_list)
     p = re.compile('"hours_forever":"(.*?)"')
     game_hours_list = p.findall(name)
     for i in range(0,len(game_hours_list)):
         game_hours_list[i] = float(str(game_hours_list[i]).replace(",",""))
-    print(game_hours_list)
     friends_page = stack[-1]+friends_url_base
     page = urllib2.urlopen(friends_page)
     soup = BeautifulSoup(page, 'html.parser')
@@ -34,12 +31,9 @@ def scrape_website(overall_dict,stack):
     if name_box is None:
         stack.pop()
         return(overall_dict,stack,None,None)
-    print(name_box)
     name = name_box.find_all('a')
-    print(name)
     p = re.compile('href="(.*?)"')
     friends_url = p.findall(str(name))
-    print(friends_url)
     stack.pop()
     # Start filling the hash table / stack
     for i in friends_url:
@@ -70,9 +64,6 @@ while(len(stack)!= 0 and count != 0):
     print("Count:" + str(count))
     if(game_list is not None and game_hours_list is not None):
         for i in range(0,min([len(game_list),len(game_hours_list)])):
-            #print(i)
-            #print(len(game_list))
-            #print(len(game_hours_list))
             # Organize the data: should be fields [player,game,hoursplayed]
             cleaned_initial_list.append([count,game_list[i],game_hours_list[i]])
             # Create a ratio of total hours played for a game
