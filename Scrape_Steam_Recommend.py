@@ -114,6 +114,6 @@ for i in pairs_dict.keys():
     pandas_choose_two["games"].append(i)
     pandas_choose_two["count"].append(pairs_dict[i])
 df_c2 = pandas.DataFrame(data=pandas_choose_two)
-df_init.to_csv("Initial_CSV2.csv")
+#df_init.to_csv("Initial_CSV2.csv")
 df_ratio.to_csv("Addendum.csv")
-df_c2.to_csv("C2_CSV2.csv")
+#df_c2.to_csv("C2_CSV2.csv")
