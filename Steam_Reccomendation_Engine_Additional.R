@@ -17,7 +17,7 @@ df_filtered = df_cast_dataframe[,c(filter_by_name)]
 #names(df_cast_dataframe)
 
 # Init
-numfeatures = 100
+numfeatures = 50
 numbercol = ncol(df_filtered)
 numberrow = nrow(df_filtered)
 X = matrix(.125,nrow=ncol(df_filtered),ncol=numfeatures)
