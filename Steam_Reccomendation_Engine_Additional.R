@@ -92,4 +92,4 @@ PlayedGames2 = PlayedGames[, (colSums(PlayedGames == 0) > 0)]
 gamesNames = names(PlayedGames2)
 Pred2 = Pred[gamesNames]
 
-print(sort(Pred2,decreasing = TRUE)[0:20])
+print(names(sort(Pred2,decreasing = TRUE))[20:50])
